@@ -26,10 +26,12 @@
 * 
 * AUTHOR :    Stephan Wink        START DATE :    01.10.2017
 *
-*
 * REF NO  VERSION DATE    WHO     DETAIL
 * 000       16.10         SWI     First working version      
-*
+* 002       18.10         SWI     Add cmd mqtt request subscription
+* 003       19.10         SWI     Add goto WifiManager command     
+* 006       31.10         SWI     migrated first running version from template V1
+* 007       11.11         SWI     add generic command subscription
 *****************************************************************************************/
 
 /*****************************************************************************************
@@ -204,9 +206,6 @@ void basicSwitch_Reconnect()
   Serial.print("[mqtt] subscribed 2: ");
   Serial.println(MQTT_SUB_BUTTON);
   client_sts.loop();
-  Serial.print("[mqtt] subscribed 3: ");
-  Serial.println(MQTT_SUB_COMMAND);
-  client_sts.subscribe(build_topic(MQTT_SUB_COMMAND));  // request general command with payload
 }
 
 /****************************************************************************************/

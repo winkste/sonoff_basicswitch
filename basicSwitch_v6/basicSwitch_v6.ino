@@ -26,12 +26,6 @@
 * 
 * AUTHOR :    Stephan Wink        START DATE :    01.10.2017
 *
-*
-* REF NO  VERSION DATE    WHO     DETAIL
-* 000       16.10         SWI     First working version      
-* 002       18.10         SWI     Add cmd mqtt request subscription
-* 003       19.10         SWI     Add goto WifiManager command     
-* 006       31.10         SWI     migrated first running version from template V1
 *****************************************************************************************/
 
 /*****************************************************************************************
@@ -249,7 +243,11 @@ void reconnect()
     Serial.println(mqttData_sts.dev_short);
     if (client_sts.connect(mqttData_sts.dev_short, mqttData_sts.login, mqttData_sts.pw)) {
       Serial.println("[mqtt] connected");
-
+      client_sts.loop();
+      Serial.print("[mqtt] subscribed generic: ");
+      Serial.println(MQTT_SUB_COMMAND);
+      client_sts.subscribe(build_topic(MQTT_SUB_COMMAND));  // request general command with payload
+      client_sts.loop();
       // ... and resubscribe
       basicSwitch_Reconnect();
 

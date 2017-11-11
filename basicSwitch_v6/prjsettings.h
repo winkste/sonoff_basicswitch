@@ -25,12 +25,11 @@
 /****************************************************************************************/
 /* Global constant defines: */
 #define FW_IDENTIFIER             "00001FW" // Firmware identification
-#define FW_VERSION                "006"     // Firmware Version
+#define FW_VERSION                "007"     // Firmware Version
 #define FW_DESCRIPTION            "SONOFF BASIC SWITCH"
 
 #define MQTT_SUB_TOGGLE           "/simple_light/toggle" // command message for toggle command
 #define MQTT_SUB_BUTTON           "/simple_light/switch" // command message for button commands
-#define MQTT_SUB_COMMAND          "/simple_light/cmd" // command message for generic commands
 #define MQTT_PUB_LIGHT_STATE      "/simple_light/status" //state of relais
 #define MQTT_PAYLOAD_CMD_ON       "ON"
 #define MQTT_PAYLOAD_CMD_OFF      "OFF"
